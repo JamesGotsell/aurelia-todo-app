@@ -1,0 +1,23 @@
+<template>
+  <div class="wrapper">
+    <img src="https://www.placecage.com/g/200/300">
+    <h1>${message}</h1>
+
+
+    <form submit.trigger="addTodo()">
+      <input class="addTodoInput" type="text" value.bind="todoDescription">
+      <button class="addTodoButton" type="submit">add todo</button>
+    </form>
+
+    <ul>
+      <li repeat.for="todo of todos">
+        <input type="checkbox" checked.bind="todo.done">
+        <span css="text-decoration: ${todo.done ? 'line-through' : 'none'}">
+        ${todo.description}
+      </span>
+        <button click.trigger="removeTodo(todo)">Remove</button>
+      </li>
+    </ul>
+  </div>
+
+</template>
